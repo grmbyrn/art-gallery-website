@@ -1,0 +1,87 @@
+<div class="gallery-container-item gallery-container-item-1">
+	<div class="gallery-container-image">
+		<img src="./assets/mobile/image-grid-1.jpg" alt="" />
+	</div>
+	<div class="gallery-container-text">
+		<h2>Your day at the gallery</h2>
+		<p>
+			Wander through our distinct collections and find new insights about our artists. Dive into the
+			details of their creative process.
+		</p>
+	</div>
+</div>
+
+<style>
+	.gallery-container-item-1 {
+		margin-top: 7.5rem;
+	}
+
+	.gallery-container-image {
+		margin-top: 1.5rem;
+	}
+
+	.gallery-container-item-1 img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	h2 {
+		font-size: 3.125rem;
+		font-weight: 900;
+	}
+
+	p {
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
+
+	.gallery-container-text p {
+		color: #444444;
+	}
+
+	@media (min-width: 768px) {
+		.gallery-container-item-1 {
+			display: flex;
+			flex-direction: row-reverse;
+			gap: 4.25rem;
+		}
+
+		.gallery-container-item-1 img {
+			content: url('./assets/tablet/image-grid-1.jpg');
+		}
+
+		.gallery-container-image {
+			flex: 1;
+		}
+
+		.gallery-container-text {
+			flex: 1;
+		}
+	}
+
+	@media only screen and (min-width: 1200px) {
+		.gallery-container-item-1 img {
+			content: url('./assets/desktop/image-grid-1.jpg');
+		}
+
+		h2 {
+			font-size: 3.75rem;
+		}
+
+		p {
+			font-size: 1.375rem;
+		}
+
+		.gallery-container-image {
+			flex: 2;
+			display: flex;
+			justify-content: flex-end; /* Center the image horizontally */
+			align-items: center; /* Center the image vertically */
+			overflow: hidden; /* Hide any overflow to prevent white space */
+		}
+
+		.gallery-container-text {
+			flex: 1;
+		}
+	}
+</style>
