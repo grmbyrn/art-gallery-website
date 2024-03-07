@@ -1,4 +1,4 @@
-<div class="gallery-container-item gallery-container-item-1">
+<div class="gallery-container">
 	<div class="gallery-container-image">
 		<img src="./assets/mobile/image-grid-1.jpg" alt="" />
 	</div>
@@ -12,7 +12,7 @@
 </div>
 
 <style>
-	.gallery-container-item-1 {
+	.gallery-container {
 		margin-top: 7.5rem;
 	}
 
@@ -20,7 +20,7 @@
 		margin-top: 1.5rem;
 	}
 
-	.gallery-container-item-1 img {
+	.gallery-container img {
 		max-width: 100%;
 		height: auto;
 	}
@@ -40,13 +40,13 @@
 	}
 
 	@media (min-width: 768px) {
-		.gallery-container-item-1 {
+		.gallery-container {
 			display: flex;
 			flex-direction: row-reverse;
 			gap: 4.25rem;
 		}
 
-		.gallery-container-item-1 img {
+		.gallery-container img {
 			content: url('./assets/tablet/image-grid-1.jpg');
 		}
 
@@ -60,7 +60,11 @@
 	}
 
 	@media only screen and (min-width: 1200px) {
-		.gallery-container-item-1 img {
+		.gallery-container {
+			padding-inline: 10.3125rem;
+		}
+
+		.gallery-container img {
 			content: url('./assets/desktop/image-grid-1.jpg');
 		}
 

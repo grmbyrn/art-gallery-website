@@ -1,3 +1,7 @@
+<script>
+	import Button from './Button.svelte';
+</script>
+
 <div class="hero-container">
 	<div class="hero-lg">
 		<div class="hero-container-dark"></div>
@@ -14,8 +18,7 @@
 				</p>
 			</div>
 			<div class="button-container">
-				<button>Our Location</button>
-				<img src="./assets/icon-arrow-right.svg" class="arrow-right" alt="arrow right" />
+				<Button />
 			</div>
 		</div>
 	</div>
@@ -44,38 +47,7 @@
 	}
 
 	.button-container {
-		display: flex;
 		margin-top: 2rem;
-		height: 4.5rem;
-	}
-
-	button {
-		font-family: 'Big Shoulders Display', sans-serif;
-		font-optical-sizing: auto;
-		font-weight: bold;
-		font-style: normal;
-		font-size: 1.25rem;
-		text-transform: uppercase;
-		background-color: #151515;
-		color: #ffffff;
-		padding-inline: 2rem;
-		letter-spacing: 3.64px;
-		border: none;
-	}
-
-	.arrow-right {
-		background-color: #d5966c;
-		padding: 24px;
-	}
-
-	.button-container:hover button {
-		background-color: #d5966c;
-		cursor: pointer;
-	}
-
-	.button-container:hover .arrow-right {
-		background-color: #151515;
-		cursor: pointer;
 	}
 
 	/* Mobile devices (screens below 768px) */
@@ -194,7 +166,10 @@
 		.button-container {
 			grid-area: 2 / 2 / 3 / 3;
 			margin-top: 4rem;
+			display: flex;
 			justify-content: center;
+			align-items: end;
+			padding-bottom: 3rem;
 		}
 	}
 </style>

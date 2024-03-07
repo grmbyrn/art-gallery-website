@@ -109,6 +109,7 @@
 
 		.gallery-container {
 			gap: 30px;
+			padding-inline: 10.3125rem;
 		}
 
 		.gallery-container-img {
