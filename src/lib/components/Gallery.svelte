@@ -1,6 +1,10 @@
 <div class="gallery-container">
 	<div class="gallery-container-image">
-		<img src="./assets/mobile/image-grid-1.jpg" alt="" />
+		<picture>
+			<source media="(min-width: 1100px)" srcset="./assets/desktop/image-grid-1.jpg" />
+			<source media="(min-width: 481px)" srcset="./assets/tablet/image-grid-1.jpg" />
+			<img class="product__image2" src="./assets/mobile/image-grid-1.jpg" alt="gallery" />
+		</picture>
 	</div>
 	<div class="gallery-container-text">
 		<h2>Your day at the gallery</h2>
@@ -46,10 +50,6 @@
 			gap: 4.25rem;
 		}
 
-		.gallery-container img {
-			content: url('./assets/tablet/image-grid-1.jpg');
-		}
-
 		.gallery-container-image {
 			flex: 1;
 		}
@@ -62,10 +62,6 @@
 	@media only screen and (min-width: 1200px) {
 		.gallery-container {
 			padding-inline: 10.3125rem;
-		}
-
-		.gallery-container img {
-			content: url('./assets/desktop/image-grid-1.jpg');
 		}
 
 		h2 {

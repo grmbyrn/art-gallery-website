@@ -7,7 +7,11 @@
 	<div class="btn">
 		<Button />
 	</div>
-	<div class="map-img"></div>
+	<picture class="map-img">
+		<source media="(min-width: 1100px)" srcset="./assets/desktop/image-map.png" />
+		<source media="(min-width: 481px)" srcset="./assets/tablet/image-map.png" />
+		<img class="map-img" src="./assets/mobile/image-map.png" alt="map to gallery" />
+	</picture>
 	<div class="location-container">
 		<div class="location-container-1">
 			<h1>Our Location</h1>
@@ -47,9 +51,7 @@
 	}
 
 	.map-img {
-		background-image: url('./assets/mobile/image-map.png');
 		background-repeat: no-repeat;
-		height: 550px;
 		position: relative;
 		z-index: 1;
 	}
@@ -101,10 +103,6 @@
 			left: 2.4375rem;
 		}
 
-		.map-img {
-			background-image: url('./assets/tablet/image-map.png');
-		}
-
 		.location-container {
 			display: flex;
 			padding: 5.5rem 2.5rem 5rem 2.5rem;
@@ -141,10 +139,6 @@
 
 		.btn {
 			left: 9.75rem;
-		}
-
-		.map-img {
-			background-image: url('./assets/desktop/image-map.png');
 		}
 
 		.location-container {

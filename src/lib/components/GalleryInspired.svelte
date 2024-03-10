@@ -1,9 +1,18 @@
 <div class="gallery-container">
 	<div class="gallery-container-img">
-		<img src="./assets/mobile/image-grid-2.jpg" alt="" />
+		<picture>
+			<source media="(min-width: 1100px)" srcset="./assets/desktop/image-grid-2.jpg" />
+			<source media="(min-width: 481px)" srcset="./assets/tablet/image-grid-2.jpg" />
+			<img class="product__image2" src="./assets/mobile/image-grid-2.jpg" alt="gallery" />
+		</picture>
 	</div>
 	<div class="gallery-container-inspired">
 		<div class="gallery-container-lower-img">
+			<picture>
+				<source media="(min-width: 1100px)" srcset="./assets/desktop/image-grid-3.jpg" />
+				<source media="(min-width: 481px)" srcset="./assets/tablet/image-grid-3.jpg" />
+				<img class="product__image2" src="./assets/mobile/image-grid-3.jpg" alt="gallery" />
+			</picture>
 			<img src="./assets/mobile/image-grid-3.jpg" alt="" />
 		</div>
 		<div class="gallery-container-text">
@@ -42,14 +51,6 @@
 	}
 
 	@media (min-width: 768px) {
-		.gallery-container-img img {
-			content: url('./assets/tablet/image-grid-2.jpg');
-		}
-
-		.gallery-container-inspired img {
-			content: url('./assets/tablet/image-grid-3.jpg');
-		}
-
 		.gallery-container {
 			display: flex;
 			margin-top: 1rem;
@@ -99,14 +100,6 @@
 	}
 
 	@media only screen and (min-width: 1200px) {
-		.gallery-container-img img {
-			content: url('./assets/desktop/image-grid-2.jpg');
-		}
-
-		.gallery-container-inspired img {
-			content: url('./assets/desktop/image-grid-3.jpg');
-		}
-
 		.gallery-container {
 			gap: 30px;
 			padding-inline: 10.3125rem;

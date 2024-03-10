@@ -5,7 +5,11 @@
 <div class="hero-container">
 	<div class="hero-lg">
 		<div class="hero-container-dark"></div>
-		<div class="hero-container-item hero-image"></div>
+		<picture>
+			<source media="(min-width: 1100px)" srcset="./assets/desktop/image-hero.jpg" />
+			<source media="(min-width: 481px)" srcset="./assets/desktop/image-hero.jpg" />
+			<img class="product__image2" src="./assets/mobile/image-hero.jpg" alt="visiting gallery" />
+		</picture>
 		<div class="hero-container-white"></div>
 	</div>
 	<div class="hero-container-item item-text">
@@ -53,7 +57,6 @@
 	/* Mobile devices (screens below 768px) */
 	@media only screen and (max-width: 767px) {
 		.hero-image {
-			background-image: url('./assets/mobile/image-hero.jpg');
 			display: block;
 		}
 
@@ -69,7 +72,6 @@
 	/* Tablets (screens below 1200px) */
 	@media only screen and (min-width: 768px) and (max-width: 1199px) {
 		.hero-image {
-			background-image: url('./assets/tablet/image-hero.jpg');
 			height: 43.75rem;
 			width: 27.3125rem;
 		}
