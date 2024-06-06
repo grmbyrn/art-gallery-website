@@ -1,11 +1,13 @@
 <script>
 	import Button from '$lib/components/Button.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+
+	let btnText = 'Back to home';
+	let slug = '/';
 </script>
 
 <div class="container">
 	<div class="btn">
-		<Button />
+		<Button {btnText} {slug} />
 	</div>
 	<picture class="map-img">
 		<source media="(min-width: 1100px)" srcset="./assets/desktop/image-map.png" />
@@ -28,9 +30,6 @@
 				Art Gallery is free to all visitors and open seven days a week from 8am to 9pm.
 			</p>
 		</div>
-	</div>
-	<div class="footer">
-		<Footer />
 	</div>
 </div>
 

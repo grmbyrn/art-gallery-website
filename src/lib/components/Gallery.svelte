@@ -21,7 +21,7 @@
 	}
 
 	.gallery-container-image {
-		margin-top: 1.5rem;
+		margin-top: 0rem;
 	}
 
 	.gallery-container img {

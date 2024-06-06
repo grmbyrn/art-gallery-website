@@ -1,17 +1,17 @@
 <script lang="ts">
-	import Footer from '$lib/components/Footer.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
 	import GalleryInspired from '$lib/components/GalleryInspired.svelte';
+	import GalleryLink from '$lib/components/GalleryLink.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 </script>
 
 <div class="container">
 	<Hero />
+	<GalleryLink />
 	<div class="gallery-container">
 		<Gallery />
 		<GalleryInspired />
 	</div>
-	<Footer />
 </div>
 
 <style>

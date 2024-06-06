@@ -22,20 +22,13 @@
 				</p>
 			</div>
 			<div class="button-container">
-				<Button />
+				<Button btnText={'Our Location'} slug={'/location'} />
 			</div>
 		</div>
 	</div>
 </div>
 
 <style>
-	.hero-image {
-		width: 100%;
-		height: 15rem;
-		background-size: cover;
-		background-position: center;
-	}
-
 	h1 {
 		font-optical-sizing: auto;
 		font-weight: 900;
@@ -52,14 +45,11 @@
 
 	.button-container {
 		margin-top: 2rem;
+		display: flex;
 	}
 
 	/* Mobile devices (screens below 768px) */
 	@media only screen and (max-width: 767px) {
-		.hero-image {
-			display: block;
-		}
-
 		.item-text {
 			padding: 0rem 1rem 0 1rem;
 		}
@@ -71,11 +61,6 @@
 
 	/* Tablets (screens below 1200px) */
 	@media only screen and (min-width: 768px) and (max-width: 1199px) {
-		.hero-image {
-			height: 43.75rem;
-			width: 27.3125rem;
-		}
-
 		h1 {
 			font-size: 4.375rem;
 		}
@@ -120,12 +105,6 @@
 			display: block;
 			background-color: #ffffff;
 			width: 28.125rem;
-		}
-
-		.hero-image {
-			background-image: url('./assets/desktop/image-hero.jpg');
-			height: 50rem;
-			width: 33.75rem;
 		}
 
 		.item-text {

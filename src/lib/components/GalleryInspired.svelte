@@ -10,10 +10,9 @@
 		<div class="gallery-container-lower-img">
 			<picture>
 				<source media="(min-width: 1100px)" srcset="./assets/desktop/image-grid-3.jpg" />
-				<source media="(min-width: 481px)" srcset="./assets/tablet/image-grid-3.jpg" />
+				<source media="(max-width: 481px)" srcset="./assets/tablet/image-grid-3.jpg" />
 				<img class="product__image2" src="./assets/mobile/image-grid-3.jpg" alt="gallery" />
 			</picture>
-			<img src="./assets/mobile/image-grid-3.jpg" alt="" />
 		</div>
 		<div class="gallery-container-text">
 			<h2>Come &amp;<br /> be inspired</h2>

@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+
+	export let btnText = '';
+	export let slug = '';
 </script>
 
 <div class="button-container">
 	{#if $page.url.pathname === '/'}
-		<button><a href="/location">Our Location</a></button>
-		<a href="/location"
-			><img src="./assets/icon-arrow-right.svg" class="arrow" alt="arrow right" /></a
-		>
+		<button><a href={slug}>{btnText}</a></button>
+		<a href={slug}><img src="./assets/icon-arrow-right.svg" class="arrow" alt="arrow right" /></a>
 	{:else if $page.url.pathname === '/location'}
 		<a href="/"><img src="./assets/icon-arrow-left.svg" class="arrow" alt="arrow left" /></a>
-		<button><a href="/">Back to home</a></button>
+		<button><a href={slug}>{btnText}</a></button>
 	{/if}
 </div>
 
@@ -41,7 +42,8 @@
 
 	.arrow {
 		background-color: #d5966c;
-		padding: 24px;
+		height: 100%;
+		padding: 24px 14px;
 	}
 
 	.button-container:hover button {
