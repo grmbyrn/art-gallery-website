@@ -11,11 +11,12 @@
 	const getPosts = async () => {
 		const res = await fetch('/data.json');
 		const data = await res.json();
+		console.log(data);
 		return data;
 	};
 </script>
 
-<div class="grid">
+<div class="container">
 	{#each posts as post, i}
 		<ArticleCard
 			index={i}
@@ -28,17 +29,4 @@
 </div>
 
 <style>
-	.container {
-	}
-
-	@media screen and (min-width: 768px) {
-		.container {
-			display: grid;
-			grid-template-columns: repeat(
-				auto-fill,
-				minmax(250px, 1fr)
-			); /* Adjust minmax values as needed */
-			gap: 20px;
-		}
-	}
 </style>
