@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Modal from './Modal.svelte';
 	export let text: string;
 	export let heroSmall: string;
@@ -8,8 +9,12 @@
 	export let artistThumbnail: string;
 	export let source: string;
 	export let year: number;
+	import { page } from '$app/stores';
+	$page.url.pathname;
+	console.log($page.url.pathname);
 
 	let showModal = false;
+	let fetchedSlugs: string[] = [];
 
 	function openModal() {
 		showModal = true;
@@ -19,8 +24,18 @@
 		showModal = false;
 	}
 
-	$: {
-		document.documentElement.style.setProperty('--dynamic-title', `"${year}"`);
+	onMount(async () => {
+		try {
+			const response = await fetch('/data.json');
+			const data = await response.json();
+			fetchedSlugs = data.map((item: any) => item.slug);
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
+	});
+
+	function extractLink(path: string): string {
+		return path.replace(/^\.\/assets\/artists(.*?)\/thumbnail\.jpg$/, '$1');
 	}
 </script>
 
@@ -49,6 +64,29 @@
 			<a href={source} target="_blank">Go to source</a>
 			<a href="/gallery">Back to gallery</a>
 		</div>
+	</div>
+</div>
+
+<div class="prevNextContainer">
+	<div>
+		<h3>{title}</h3>
+		<h4>{artistName}</h4>
+	</div>
+	<div class="prevNextBtns">
+		{#each fetchedSlugs as fetchedSlug, i}
+			{#if fetchedSlug === $page.url.pathname}
+				<a href={fetchedSlugs[i - 1]}>
+					<img src="assets/artists/shared/icon-back-button.svg" alt="back" />
+				</a>
+			{/if}
+		{/each}
+		{#each fetchedSlugs as fetchedSlug, i}
+			{#if fetchedSlug === $page.url.pathname}
+				<a href={fetchedSlugs[i + 1]}>
+					<img src="assets/artists/shared/icon-next-button.svg" alt="back" />
+				</a>
+			{/if}
+		{/each}
 	</div>
 </div>
 
@@ -109,13 +147,17 @@
 
 	h1,
 	h2,
+	h3,
+	h4,
 	p,
 	a {
 		font-family: 'Libre Baskerville', serif;
 	}
 
 	h1,
-	h2 {
+	h2,
+	h3,
+	h4 {
 		text-transform: none;
 	}
 
@@ -132,6 +174,16 @@
 		background-color: #ffffff;
 	}
 
+	h3 {
+		font-size: 14px;
+	}
+
+	h4 {
+		font-size: 10px;
+		font-weight: normal;
+		color: #7d7d7d;
+	}
+
 	.info-container {
 		margin-bottom: 67px;
 		margin-top: 9rem;
@@ -146,7 +198,7 @@
 	}
 
 	p::before {
-		content: var(--dynamic-title); /* The background text */
+		content: '1889'; /* The background text */
 		position: absolute; /* Position it absolutely relative to the p element */
 		top: -10%; /* Center it vertically */
 		left: 70%; /* Center it horizontally */
@@ -172,6 +224,20 @@
 
 	a:hover {
 		color: #d5966c;
+	}
+
+	.prevNextContainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-inline: 1.5rem;
+		margin-bottom: 1rem;
+		border-top: 1px solid #979797;
+	}
+
+	.prevNextBtns {
+		display: flex;
+		gap: 1.5rem;
 	}
 
 	@media (min-width: 768px) {
