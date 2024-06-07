@@ -10,7 +10,7 @@
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
-		padding-block: 2rem;
+		padding: 2rem;
 	}
 
 	@media (min-width: 768px) {

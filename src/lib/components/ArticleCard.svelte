@@ -4,10 +4,14 @@
 	export let img: string;
 	export let title: string;
 	export let artistName: string;
+
+	function extractLink(path: string): string {
+		return path.replace(/^\.\/assets\/artists(.*?)\/thumbnail\.jpg$/, '$1');
+	}
 </script>
 
 <div class="container">
-	<a href={link}>
+	<a href={extractLink(link)}>
 		<img src={img} alt="Painting" />
 		<h1>{title}</h1>
 		<h2>{artistName}</h2>
@@ -21,7 +25,6 @@
 		width: 100%;
 		max-width: 600px; /* Adjust as needed */
 		padding: 1.5rem;
-		border: 1px solid red;
 	}
 
 	.container img {

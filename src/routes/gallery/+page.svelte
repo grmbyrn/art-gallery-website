@@ -23,7 +23,7 @@
 			img={post.images.gallery}
 			title={post.name}
 			artistName={post.artist.name}
-			link={'/starry-night'}
+			link={post.images.thumbnail}
 		/>
 	{/each}
 </div>
