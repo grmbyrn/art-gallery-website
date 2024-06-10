@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte';
 
 	let posts: Post[] = [];
+
 	onMount(async () => {
 		posts = await getPosts();
 	});
