@@ -14,5 +14,6 @@ export type Post = {
             "large": string
         },
         "gallery": string
-    }
+    },
+    "slug": string
 }

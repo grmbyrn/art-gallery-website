@@ -12,54 +12,63 @@
 
 <div class="container">
 	<a href={extractLink(link)}>
-		<img src={img} alt="Painting" />
-		<h1>{title}</h1>
-		<h2>{artistName}</h2>
+		<figure class="landscape">
+			<img src={img} alt="Painting" />
+			<figcaption>
+				<h1>{title}</h1>
+				<h2>{artistName}</h2>
+			</figcaption>
+		</figure>
 	</a>
 </div>
 
 <style>
 	.container {
-		margin: 0 auto;
-		position: relative;
-		width: 100%;
-		max-width: 600px; /* Adjust as needed */
-		padding: 1.5rem;
+		margin-top: 1.5rem;
 	}
 
-	.container img {
+	a {
+		text-decoration: none;
+	}
+
+	img {
 		width: 100%;
 		height: auto;
 		display: block;
 	}
 
-	.container a {
-		text-decoration: none;
-		color: inherit;
+	figure {
+		margin: 0;
+		display: grid;
+		grid-template-rows: 1fr auto;
 	}
 
-	.container h1,
-	.container h2 {
-		position: absolute;
-		width: 100%;
-		text-align: left;
+	figure > img {
+		grid-row: 1 / -1;
+		grid-column: 1;
+	}
+
+	figcaption {
+		grid-row: 2;
+		grid-column: 1;
+		padding: 2rem;
+	}
+
+	h1,
+	h2 {
 		color: white;
-		padding: 0 10px;
-		margin: 2rem 2rem;
+		padding: 2rem;
 		text-transform: capitalize;
 		font-family: 'Libre Baskerville', serif;
 		text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9);
+		padding: 0;
 	}
 
-	.container h1 {
-		bottom: 40px;
+	h1 {
 		font-size: 1.5rem;
-		max-width: 300px;
-		font-weight: 900;
 	}
 
-	.container h2 {
-		bottom: 20px;
+	h2 {
 		font-size: 13px;
 	}
 </style>

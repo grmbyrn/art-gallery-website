@@ -9,9 +9,7 @@
 	export let artistThumbnail: string;
 	export let source: string;
 	export let year: number;
-	import { page } from '$app/stores';
-	$page.url.pathname;
-	console.log($page.url.pathname);
+	import PrevNext from './PrevNext.svelte';
 
 	let showModal = false;
 	let fetchedSlugs: string[] = [];
@@ -33,13 +31,9 @@
 			console.error('Error fetching data:', error);
 		}
 	});
-
-	function extractLink(path: string): string {
-		return path.replace(/^\.\/assets\/artists(.*?)\/thumbnail\.jpg$/, '$1');
-	}
 </script>
 
-<div class="container">
+<div class="container" style="--year: '{year}'">
 	<div class="large-screen-container">
 		<div class="painting-container">
 			<button on:click={openModal}
@@ -67,37 +61,13 @@
 	</div>
 </div>
 
-<div class="prevNextContainer">
-	<div>
-		<h3>{title}</h3>
-		<h4>{artistName}</h4>
-	</div>
-	<div class="prevNextBtns">
-		{#each fetchedSlugs as fetchedSlug, i}
-			{#if fetchedSlug === $page.url.pathname}
-				<a href={fetchedSlugs[i - 1]}>
-					<img src="assets/artists/shared/icon-back-button.svg" alt="back" />
-				</a>
-			{/if}
-		{/each}
-		{#each fetchedSlugs as fetchedSlug, i}
-			{#if fetchedSlug === $page.url.pathname}
-				<a href={fetchedSlugs[i + 1]}>
-					<img src="assets/artists/shared/icon-next-button.svg" alt="back" />
-				</a>
-			{/if}
-		{/each}
-	</div>
-</div>
+<PrevNext {title} {artistName} {fetchedSlugs} />
 
 <Modal {showModal} {onClose} imageSrc={heroLarge} />
 
 <style>
-	:root {
-		--dynamic-title: 'Default Title'; /* Default value */
-	}
-
 	.container {
+		--year: 'Default Year';
 		margin: 3rem;
 		margin: 0 auto;
 		padding-inline: 1.5rem;
@@ -147,17 +117,13 @@
 
 	h1,
 	h2,
-	h3,
-	h4,
 	p,
 	a {
 		font-family: 'Libre Baskerville', serif;
 	}
 
 	h1,
-	h2,
-	h3,
-	h4 {
+	h2 {
 		text-transform: none;
 	}
 
@@ -174,16 +140,6 @@
 		background-color: #ffffff;
 	}
 
-	h3 {
-		font-size: 14px;
-	}
-
-	h4 {
-		font-size: 10px;
-		font-weight: normal;
-		color: #7d7d7d;
-	}
-
 	.info-container {
 		margin-bottom: 67px;
 		margin-top: 9rem;
@@ -198,7 +154,7 @@
 	}
 
 	p::before {
-		content: '1889'; /* The background text */
+		content: var(--year); /* The background text */
 		position: absolute; /* Position it absolutely relative to the p element */
 		top: -10%; /* Center it vertically */
 		left: 70%; /* Center it horizontally */
@@ -224,20 +180,6 @@
 
 	a:hover {
 		color: #d5966c;
-	}
-
-	.prevNextContainer {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding-inline: 1.5rem;
-		margin-bottom: 1rem;
-		border-top: 1px solid #979797;
-	}
-
-	.prevNextBtns {
-		display: flex;
-		gap: 1.5rem;
 	}
 
 	@media (min-width: 768px) {

@@ -3,8 +3,11 @@
 	import GalleryInspired from '$lib/components/GalleryInspired.svelte';
 	import GalleryLink from '$lib/components/GalleryLink.svelte';
 	import Hero from '$lib/components/Hero.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
+<Header />
 <div class="container">
 	<Hero />
 	<GalleryLink />
