@@ -4,12 +4,16 @@
 	import type { Product } from '$lib/utils/types';
 
 	export let product: Product = { id: '', name: '', price: 0, image: '' };
+
 	let cart = get(cartItems); // [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
 	// id: "1"
+
 	let cartItemIndex = cart.findIndex((item) => {
 		return item.id === product.id;
 	});
+
 	let cartProduct = cart[cartItemIndex];
+
 	cartItems.subscribe((newCartValue) => {
 		cart = newCartValue;
 		cartItemIndex = cart.findIndex((item) => {
@@ -29,9 +33,7 @@
 		<div class="price">
 			<h3>Price: ${product.price}</h3>
 			{#if cartProduct !== undefined}
-				<h3>
-					Quantity: <strong>{cartProduct.quantity}</strong>
-				</h3>
+				<h3>Quantity: {cartProduct.quantity}</h3>
 			{/if}
 		</div>
 		<div class="button-container">

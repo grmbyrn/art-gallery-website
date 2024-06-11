@@ -1,10 +1,5 @@
 import { writable, get } from "svelte/store";
-
-// Define the CartItem type
-type CartItem = {
-    id: string;
-    quantity: number;
-};
+import type { CartItem } from "$lib/utils/types";
 
 export const cartItems = writable<CartItem[]>([]);
 
